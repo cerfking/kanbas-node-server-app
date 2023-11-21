@@ -14,7 +14,7 @@ mongoose.connect(CONNECTION_STRING);
 const app = express()
 app.use(cors({
         credentials: true,
-        origin: process.env.NODE_ENV === 'production' ? ['https://a5--creative-unicorn-059316.netlify.app/', 'https://a6--creative-unicorn-059316.netlify.app/'] : "http://localhost:3000",
+        origin: process.env.NODE_ENV === 'production' ? ['https://a5--creative-unicorn-059316.netlify.app', 'https://a6--creative-unicorn-059316.netlify.app'] : "http://localhost:3000",
         preflightContinue: false,
     }
 ));
