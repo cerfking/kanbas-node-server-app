@@ -20,6 +20,13 @@ app.use(cors({
         origin: (origin, callback) => {
         allowedOrigins.includes(origin) ? callback(null, true) : callback(new Error('Not allowed by CORS'))
         },
+        allowedHeaders: [
+        'access-control-allow-origin',
+        'authorization',
+        'Pragma',
+        'contact',
+        ],
+        exposeHeaders: []
     }
 ));
 const sessionOptions = {
