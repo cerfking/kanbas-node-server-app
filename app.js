@@ -12,21 +12,10 @@ import session from "express-session";
 const CONNECTION_STRING = process.env.DB_CONNECTION_STRING || 'mongodb://127.0.0.1:27017/kanbas'
 mongoose.connect(CONNECTION_STRING);
 const app = express()
-const allowedOrigins = process.env.FRONTEND_URL.split(',').map(origin=>origin);
-
 app.use(express.json());
 app.use(cors({
         credentials: true,
-        origin: (origin, callback) => {
-        allowedOrigins.includes(origin) ? callback(null, true) : callback(new Error('Not allowed by CORS'))
-        },
-        allowedHeaders: [
-        'access-control-allow-origin',
-        'authorization',
-        'Pragma',
-        'contact',
-        ],
-        exposeHeaders: []
+        origin: process.env.FRONTEND_URL
     }
 ));
 const sessionOptions = {
