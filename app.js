@@ -23,7 +23,7 @@ app.use(express.json());
 const sessionOptions = {
     secret: "any string",
     resave: false,
-    saveUninitialized: false,
+    saveUninitialized: true,
     // cookie: {
     //     sameSite: 'None', // or 'Lax' or 'Strict'
     //     secure: true,
