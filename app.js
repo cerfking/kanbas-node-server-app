@@ -26,6 +26,7 @@ const sessionOptions = {
     saveUninitialized: false,
     cookie: {
         sameSite: 'None', // or 'Lax' or 'Strict'
+        secure: true,
         // Other cookie options if needed, such as secure: true for HTTPS
     }
 };
