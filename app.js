@@ -24,11 +24,10 @@ const sessionOptions = {
     secret: "any string",
     resave: false,
     saveUninitialized: true,
-    // cookie: {
-    //     sameSite: 'None', // or 'Lax' or 'Strict'
-    //     secure: true,
-    //     // Other cookie options if needed, such as secure: true for HTTPS
-    // }
+    cookie: {
+        sameSite: 'None',
+        secure: process.env.NODE_ENV === 'production', // Set to true in production (HTTPS)
+    }
 };
 app.use(
     session(sessionOptions)
