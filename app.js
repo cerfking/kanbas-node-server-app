@@ -24,6 +24,10 @@ const sessionOptions = {
     secret: "any string",
     resave: false,
     saveUninitialized: false,
+    cookie: {
+        sameSite: 'None', // or 'Lax' or 'Strict'
+        // Other cookie options if needed, such as secure: true for HTTPS
+    }
 };
 app.use(
     session(sessionOptions)
