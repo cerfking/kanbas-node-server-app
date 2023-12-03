@@ -24,11 +24,19 @@ const sessionOptions = {
     secret: "any string",
     resave: false,
     saveUninitialized: true,
-    cookie: {
-        sameSite: 'None',
-        secure: process.env.NODE_ENV === 'production', // Set to true in production (HTTPS)
-    }
+    // cookie: {
+    //     sameSite: 'None',
+    //     secure: process.env.NODE_ENV === 'production', // Set to true in production (HTTPS)
+    // }
 };
+if (process.env.NODE_ENV !== "development") {
+    sessionOptions.proxy = true;
+    sessionOptions.cookie = {
+        sameSite: "none",
+        secure: true,
+    };
+}
+
 app.use(
     session(sessionOptions)
 );
